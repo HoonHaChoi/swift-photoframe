@@ -1,97 +1,96 @@
-# 진행 방법
+## # 사진액자 앱
 
-- 포토프레임에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+## Tabbed
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-photoframe
-```
+### 프로그래밍 요구사항
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-photoframe
-```
+- 자동 생성된 ViewController 클래스 viewDidLoad() 함수에서 `print(#file, #line, #function, #column)` 코드를 추가하고 실행하면 콘솔 영역에 무엇이 출력되는지 확인한다.
+---
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+<center><img width="388" alt="스크린샷 2021-02-08 오후 6 19 30" src="https://user-images.githubusercontent.com/33626693/107199835-3b45a700-6a3a-11eb-95a6-a4a2496884f9.png"></center>
 
-5. 기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다)
-```
-git checkout -b 브랜치이름
-ex) git checkout -b photoframe-step1
-```
+<img width="746" alt="스크린샷 2021-02-08 오후 6 19 41" src="https://user-images.githubusercontent.com/33626693/107199840-3d0f6a80-6a3a-11eb-956f-b20b8aa04745.png">
 
-6. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+## (20.02.08:21:45:00)
 
-7. 본인 원격 저장소에 올리기
-```
-git push --set-upstream origin 브랜치이름
-ex) git push --set-upstream origin photoframe-step1
-```
+## IBOutlet
 
-8. pull request
-	- pull request는 github 서비스에서 진행할 수 있다.
-	- pull request는 original 저장소의 브랜치(자신의 github 아이디)와 앞 단계에서 생성한 브랜치 이름을 기준으로 한다.
+#### 요구사항
 
-	```
-	ex) code-squad/swift-photoframe godrm 브랜치 기준 => godrm/swift-photoframe store-step1
-	```
-	
-9. code review 및 push
-	- pull request를 통해 피드백을 받는다.
-	- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+ IBOutlet으로 연결
 
-10. 기본(upstream) 브랜치 전환 및 base 저장소 추가하기(최초 시작하기 단계 한번만 하면 됨)
+연결한 아웃렛 변수에 값을 변경
 
-	```
-	git checkout 본인_아이디
-	git remote add upstream base_저장소_url
+<img width="2020" alt="스크린샷 2021-02-08 오후 10 57 09" src="https://user-images.githubusercontent.com/33626693/107302806-4d1e5d00-6ac1-11eb-9895-54a379cc04c3.png">
 
-	ex) git checkout godrm
-	ex) git remote add upstream https://github.com/code-squad/swift-photoframe.git
-	```
+## **(20.02.09 09:26)**
 
-	- 위와 같이 base 저장소 추가한 후 remote 브랜치 목록을 보면 4개가 보여야 한다.
+## **IBAction**
 
-	```
-	git remote -v
-	```
+### 요구사항
 
-11. 기본 base 저장소와 sync하기 (PR 보낸 내용을 자신의 기본 저장소와 합치기)
+UIButton 추가 후 IBAction 으로 연결
 
-	```
-	git fetch upstream
-	git rebase upstream/본인_아이디
-	ex) git rebase upstream/godrm
-	```
+액션에 메서드 구현
 
-12. 다음 미션을 해결할 경우 [5단계 브랜치 생성]부터 다시 진행
+실행하고 버튼 터치하기 이전/이후 화면 캡쳐해서 [Readme.md](http://Readme.md) 파일에 포함
 
-## 동영상을 통한 코드 리뷰() 를 통해 참고 가능
+![https://user-images.githubusercontent.com/33626693/107303721-f44fc400-6ac2-11eb-99d7-2b455526afab.png](https://user-images.githubusercontent.com/33626693/107303721-f44fc400-6ac2-11eb-99d7-2b455526afab.png)
 
-- [fork하여 코드 리뷰하기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 
-- [PR 보내고 다시 PR보낼 때 유의 사항](https://www.youtube.com/watch?v=CbLNbCUsh5c&feature=youtu.be)
+![https://user-images.githubusercontent.com/33626693/107303716-eef27980-6ac2-11eb-9ae6-c51ae11cc190.png](https://user-images.githubusercontent.com/33626693/107303716-eef27980-6ac2-11eb-9ae6-c51ae11cc190.png)
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+## **(20.02.09 10:45)**
+
+## Scene & Segue
+
+#### 요구사항
+
+ 새로운 Scene과 Segue를 추가
+
+새로운 화면을 캡처해서 readme.md 파일에 포함
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/33626693/107308434-ff5b2200-6acb-11eb-88f9-89d8b2073490.gif)
+
+## (20.02.09 11:30)
+
+## ViewController 프로그래밍
+
+#### 요구사항
+
+클래스 코드와 연결해서 동작
+
+새로운 화면 캡쳐해서 readme.md 포함
+
+<img width="1706" alt="스크린샷 2021-02-09 오후 2 16 40" src="https://user-images.githubusercontent.com/33626693/107319182-9ed6df80-6ae1-11eb-9ce6-31bb250a46d4.png">
+![ezgif com-video-to-gif-2](https://user-images.githubusercontent.com/33626693/107319201-a7c7b100-6ae1-11eb-953c-589f467c9a21.gif)
+
+## (20.02.09 14:41)
+
+## Container ViewController
+
+#### 요구사항
+
+내비게이션 컨트롤러(Navigation Controller)를 Embed 시켜서 동작하도록 개선
+
+닫기 버튼 코드 수정 
+
+blueViewController 추가 및 닫기 버튼 코드 추가 
+
+뷰 컨트롤러 콜백함수 동작 확인
+
+<img width="1557" alt="스크린샷 2021-02-09 오후 3 48 39" src="https://user-images.githubusercontent.com/33626693/107326306-87eaba00-6aee-11eb-97cb-01213fd72f83.png">
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/33626693/107326310-8ae5aa80-6aee-11eb-8add-1dfbde862402.gif)
+
+
+
+## Second Scene 화면
+
+#### 요구사항
+
+탭바의 두 번째 화면 (Second Scene) 디자인을 변경하고 액자 앱을 동작을 구현
+
+화면을 캡처해서 readme.md 파일에 포함
+
+![ezgif com-video-to-gif-5](https://user-images.githubusercontent.com/33626693/107354770-ea08e680-6b11-11eb-8110-e3ce7025af5d.gif)
